@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../src/context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/router';
 import { User, Camera, Edit3, Shield, Bell, Check, LogOut, X, Package, Heart, Star, ChevronRight } from 'lucide-react';
 import { Layout } from '../src/components/layout/Layout';

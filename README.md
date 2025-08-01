@@ -81,11 +81,11 @@ import AuthOTP from './components/auth/AuthOTP';
 Gunakan hook `useAuth` untuk mengakses informasi user dan fungsi autentikasi:
 
 ```jsx
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from 'context/AuthContext';
 
 function MyComponent() {
   const { user, isAuthenticated, logout } = useAuth();
-  
+
   if (isAuthenticated) {
     return (
       <div>
@@ -97,7 +97,7 @@ function MyComponent() {
       </div>
     );
   }
-  
+
   return <p>Silakan login untuk melanjutkan</p>;
 }
 ```
@@ -119,7 +119,7 @@ const db = getFirestore();
 try {
   const userCredential = await confirmationResult.confirm(otpCode);
   const user = userCredential.user;
-  
+
   // Simpan data pengguna di Firestore
   const userDocRef = doc(db, "users", user.uid);
   await setDoc(userDocRef, {
@@ -128,7 +128,7 @@ try {
     createdAt: new Date(),
     lastLogin: new Date()
   }, { merge: true }); // merge: true agar tidak menimpa data yang sudah ada
-  
+
   console.log("Data pengguna disimpan di Firestore:", user.uid);
 } catch (error) {
   console.error("Error:", error);
@@ -139,30 +139,30 @@ try {
 
 ```jsx
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from 'context/AuthContext';
 
 function UserProfile() {
   const { user } = useAuth();
   const [userData, setUserData] = useState(null);
   const db = getFirestore();
-  
+
   useEffect(() => {
     const fetchUserData = async () => {
       if (user) {
         const userDocRef = doc(db, "users", user.uid);
         const userDoc = await getDoc(userDocRef);
-        
+
         if (userDoc.exists()) {
           setUserData(userDoc.data());
         }
       }
     };
-    
+
     fetchUserData();
   }, [user]);
-  
+
   if (!user) return <p>Silakan login terlebih dahulu</p>;
-  
+
   return (
     <div>
       <h2>Profil Pengguna</h2>

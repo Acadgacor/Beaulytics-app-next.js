@@ -1,10 +1,11 @@
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
-import { AuthProvider } from '../src/context/AuthContext';
-import { CartProvider } from '../src/context/CartContext';
-import { CompareProvider } from '../src/context/CompareContext';
+import { AuthProvider } from '../context/AuthContext';
+import { CartProvider } from '../context/CartContext';
+import { CompareProvider } from '../context/CompareContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log('Starting MyApp');
   return (
     <AuthProvider>
       <CartProvider>

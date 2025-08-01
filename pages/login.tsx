@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth } from '../src/context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/router';
 import { useGoogleLogin } from '@react-oauth/google';
 import { FiEye as Eye, FiEyeOff as EyeOff, FiUser as User, FiMail as Mail, FiLock as Lock, FiArrowRight as ArrowRight } from 'react-icons/fi';

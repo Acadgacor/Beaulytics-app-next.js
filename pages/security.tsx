@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { FaKey, FaShieldAlt, FaBell, FaCheck, FaChevronDown } from 'react-icons/fa';
 import { MdDevices } from 'react-icons/md';
-import { useAuth } from '../src/context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { Layout } from '../src/components/layout/Layout';
 
 const Security = () => {
